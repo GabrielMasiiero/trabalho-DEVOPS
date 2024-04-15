@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Tattoo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script src="react.jsx"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+
+    *{
+        font-family: 'Nunito', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        text-transform: capitalize;
+        transition: .2s linear;
+    }
+
+
+    html{
+        font-size: 62.5%;
+    }
+
+    section{
+        padding: 2rem 2%;
+    }
+
+
+    /* HEADER */
+
+    .header{
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 9%;
+        z-index: 2;
+        background: rgb(218, 218, 218);
+    }
+
+    .header .logo h1{
+        display: flex;
+        margin: 10px;
+        font-size: 40px;
+        color: rgb(100, 89, 91) ;
+    }
+
+    .header .navbar #close{
+        display: none;  
+    }
+
+    .header .navbar a{
+        font-size: 2rem;
+        margin-right: 2rem;
+        color: rgb(0, 0, 0) ;
+    }
+
+    .header .navbar a:hover{
+        color: rgb(255, 255, 255);
+    }
+
+    .header #menu{
+        display: none;
+    }
+
+    /* FIM DO HEADER */
+
+    /* HOME */
+
+    .home{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        background: rgb(218, 218, 218);
+        padding-top: 90px;
+        padding-left: 80px;
+    }
+
+    .home .content{
+        flex: 1 1 40rem;
+    }
+
+    .home .content .title{
+        font-size: 3rem;
+        color: #adadad;
+        text-transform: uppercase;
+        padding-top: 10px;
+    }
+
+    .home .content .btn{
+        margin-top: 1rem;
+        display: inline-block;
+        padding: .9rem 3rem;
+        font-size: 1.7rem;
+        color: #fff;
+        background-color: #adadad;
+        cursor: pointer;
+        border-radius: 12px;
+        margin-left: 450px; 
+    }
+
+    .home .content .btn:hover{
+        letter-spacing: .2rem;
+    }
+
+    .home .content .description{
+        font-size: 2rem;
+        font-weight: lighter;
+        line-height: 1.8;
+        padding: 1rem 0;
+        color: #000;
+        width: 600px;
+        font-family: Nunito;
+        text-transform: lowercase;
+    }
+
+    .home .image{
+        flex: 1 1 30rem;
+    }
+
+    .home .image h1{
+        width: 100%;
+        font-size: 6rem;
+        color: #adadad;
+    }
+
+    .home .image img{
+        width: 420px;
+        height: 515px;
+        display: flex;
+        flex-direction: row-reverse;
+        padding-left: 80px;
+        padding-top: 60px;
+    }
+    /*  FIM DA HOME */
+
+    /*  SOBRE */
+    .sobre .problema{
+        display: flex;
+        font-size: 2rem;
+        font-weight: lighter;
+        line-height: 1.8;
+        padding: 1rem 0;
+        color: #000;
+        width: 600px;
+        font-family: Nunito;
+        text-transform: lowercase;
+        padding-left: 50px;
+        margin-left: 770px;
+    }   
+
+    .sobre .title{
+        display: flex;
+        font-size: 3rem;
+        color: #adadad;
+        text-transform: uppercase;
+        padding-top: 100px;
+        padding-left: 50px;
+        margin-left: 770px;
+    }
+
+    .sobre{
+        height: 60vh;
+        background-color: #fff;
+    }
+
+    .btn{
+        margin-top: 1rem;
+        display: inline-block;
+        padding: .9rem 3rem;
+        font-size: 1.7rem;
+        color: #fff;
+        background-color: #adadad;
+        cursor: pointer;
+        border-radius: 12px;
+        margin-left: 820px; 
+    }
+
+    /*  FIM DA SOBRE */
+
+    /*  PROJETO */
+
+    .projeto{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        background: rgb(218, 218, 218);
+        padding-top: 5px;
+        padding-left: 80px;
+    }
+
+    .projeto .content .title-tatuadores{
+        font-size: 3rem;
+        color: #adadad;
+        text-transform: uppercase;
+        padding-right: 42px;
+    }
+
+    .projeto .content .title-clientes{
+        font-size: 3rem;
+        color: #adadad;
+        text-transform: uppercase;
+        padding-top: 106px;
+    }
+
+    .projeto .content .plataforma-tatuadores{
+        display: flex;
+        font-size: 2rem;
+        font-weight: lighter;
+        line-height: 1.8;
+        padding: 1rem 0;
+        color: #000;
+        width: 600px;
+        font-family: Nunito;
+        text-transform: none;
+    }
+
+    .projeto .content .plataforma-clientes{
+        display: flex;
+        font-size: 2rem;
+        font-weight: lighter;
+        line-height: 1.8;
+        padding: 1rem 0;
+        color: #000;
+        width: 600px;
+        font-family: Nunito;
+        text-transform: none;
+        text-align:initial;
+        padding-right: 40px;
+    }
+
+    /*  FIM DA PROJETO */
+
+    /*  CONTATO */
+
+    .contato {
+        background-color: rgb(218, 218, 218);
+        padding: 20px;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 180px;
+    }
+
+    .footer-column {
+        flex: 1 1 300px;
+        margin-bottom: 20px;
+    }
+
+    .footer-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .footer-email,
+    .footer-telefone {
+        font-size: 16px;
+        line-height: 1.4;
+        text-transform: none;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    /* Regras de mídia para tornar o footer responsivo */
+    @media screen and (max-width: 768px) {
+        .footer-column {
+            flex-basis: 100%;
+        }
+    }
+
+    .main {
+        width: 80%;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        background-color: rgb(218, 218, 218);
+    }
+
+    .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .head h1 {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: rgb(100, 89, 91);
+        color: rgb(218, 218, 218);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: rgb(117, 110, 111);
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        background-color: rgb(189, 186, 186);
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /*  FIM DA CONTATO */
+    </style>
+</head>
+<body>
+    <!--INICIO DO DESENVOLVIMENTO DO HEADER-->
+    <header class="header">
+        
+        <a href="#" class="logo">
+            <h1>Easy Tattoo</h1>
+        </a>
+
+        <nav class="navbar">
+            <div class="fas fa-times" id="close"></div>
+    
+            <a href="#home" class="nav_item">Home</a>
+            <a href="#projeto" class="nav_item">Projeto</a>
+            <a href="#sobre" class="nav_item">Sobre</a>
+            <a href="#contato" class="nav_item">Contato</a>
+            
+        </nav>
+    
+        <div id="menu" class="fas fa-bars"></div>
+
+    </header>
+    <!-- FINAL DO DESENVOLVIMENTO DO HEADER-->
+
+    <!--INICIO DO DESENVOLVIMENTO DA ABA HOME-->
+    <section id="home" class="home">
+
+        <div class="content">
+            <h1 class="title"><span>IDEIA</span></h1>
+            <p class="description"><span>A</span> plataforma tem como principal objetivo auxiliar tatuadores que estão em busca de clientes, oferecendo uma abordagem simples, direta e eficiente para se conectarem com seus seguidores. <span>Ao</span> mesmo tempo, visa atender às necessidades dos clientes que desejam encontrar um tatuador que seja capaz de realizar um trabalho personalizado, de acordo com suas preferências e requisitos. <span>Também</span> temos como objetivo trazer inovação para o mercado de tatuagens, pois reconhecemos que ainda há uma escassez de meios eficazes para divulgar o trabalho dos profissionais dessa área. <span>Nossa</span> plataforma busca preencher essa lacuna, proporcionando aos tatuadores uma oportunidade de mostrar seus talentos e habilidades de maneira mais ampla e acessível.</p>
+            
+        </div>
+
+    </section>
+    <!-- FINAL DO DESENVOLVIMENTO DA ABA HOME-->
+
+    <!--INICIO DO DESENVOLVIMENTO DA ABA SOBRE-->
+    <section id="sobre" class="sobre">
+
+        <div class="content">
+            <h1 class="title"><span>PROBLEMA</span></h1>
+            <p class="problema"><span>Quero</span> me tatuar, mas não sei com quem!</p>
+            <a href="#" class="btn">Saiba mais</a>
+        </div>
+        
+    </section>
+    <!-- FINAL DO DESENVOLVIMENTO DA ABA SOBRE-->
+
+    <!--INICIO DO DESENVOLVIMENTO DA ABA PROJETO-->
+    <section id="projeto" class="projeto">
+
+        <div class="content">
+            <h1 class="title-tatuadores"><span>A PLATAFORMA PARA OS TATUADORES</span></h1>
+            <p class="plataforma-tatuadores">Nosso aplicativo oferece aos tatuadores a oportunidade de compartilhar suas incríveis obras de arte com um público amplo e interativo. Ao postar suas criações, os tatuadores podem expô-las para todos os usuários da plataforma, permitindo que sejam apreciadas e interagidas por pessoas de diferentes perfis.</p>
+        </div>
+
+        <div class="content">
+            <h1 class="title-clientes"><span>A PLATAFORMA PARA OS CLIENTES</span></h1>
+            <p class="plataforma-clientes">Para os clientes, nossa plataforma oferece funcionalidades semelhantes às do LinkedIn e Pinterest, permitindo que eles explorem e descubram uma ampla variedade de estilos e trabalhos artísticos de tatuagem. Os clientes podem buscar e filtrar as artes de acordo com suas preferências, possibilitando que encontrem tatuadores especializados em estilos específicos ou com trabalhos que se encaixem em suas preferências estéticas.</p>
+        </div>
+        
+        
+    </section>
+    <!-- FINAL DO DESENVOLVIMENTO DA ABA PROJETO-->
+
+    <!--INICIO DO DESENVOLVIMENTO DA ABA CONTATO-->
+    
+
+    <footer id="contato" class="contato">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">EMAIL DE CONTATO</h3>
+                    <p class="footer-email">emailpmi@gmail.com</p>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">CONTATO ALTERNATIVO</h3>
+                    <p class="footer-telefone">Se quiser entrar em contato pessoalmente conosco, somos alunos da turma ADS11.</p>
+                </div>
+            </div>
+        </div>
+        <div id="root"></div>
+    </footer>
+
+    <!-- SCRIPT DE ROLAGEM DA PAGINA-->
+    <script>
+        // Função para animar a rolagem suave
+        function scrollToSection(element) {
+            // vai achar o elemento de destino com base no atributo href do link
+            const target = document.querySelector(element.getAttribute('href'));
+
+            // Calcula a posição do elemento de destino
+            const offsetTop = target.offsetTop;
+
+            // Anima a rolagem suave
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
+        // Adiciona o evento de clique aos links do header
+        const headerLinks = document.querySelectorAll('.nav_item');
+        headerLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); // Impede o comportamento padrão do link
+                scrollToSection(link); // Chama a função de rolagem suave
+            });
+        });
+    </script>
+    <script>
+
+    </script>
+</body>
+</html>
